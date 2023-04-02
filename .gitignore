@@ -1,0 +1,30 @@
+#project files
+**/*.Xil
+**/*.cache
+**/*.hw
+**/*.log
+**/*.jou
+**/*.runs
+**/*.sim
+**/*.ip_user_files
+*.log
+*.jou
+*.str
+*.tmp
+*.lxt
+*.vpp
+#ip files
+**/ip/*/*
+!**/ip/*/*.xci
+ipshared
+# sdk files
+.metadata
+.sdk
+RemoteSystemsTempFiles
+webtalk
+*_bsp
+*_hw_platform_*
+Debug
+Release
+**/.vscode
+**/*.code-workspace

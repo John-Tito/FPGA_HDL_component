@@ -1,0 +1,51 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "compile",
+            "type": "shell",
+            "command": "iverilog",
+            "args": [
+                "-g2005-sv",
+                "-o",
+                "sim/test_tb.vpp",
+                "-I",
+                "sim ",
+                "-I",
+                "src",
+            ]
+        },
+        {
+            "label": "proceed",
+            "type": "shell",
+            "command": "vvp",
+            "args": [
+                "-n",
+                "sim/test_tb.vpp",
+                "-lxt2"
+            ],
+            "dependsOn": [
+                "compile"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "showWave",
+            "type": "shell",
+            "command": "gtkwave",
+            "args": [
+                "sim/test_tb.lxt"
+            ],
+            "dependsOn": [
+                "proceed"
+            ],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
